@@ -21,7 +21,11 @@ const envVarsSchema = Joi.object({
   MONGO_PASSWORD: Joi.string()
     .description('Mongo DB user password'),
   MONGO_DATABASE: Joi.string().required()
-    .description('Mongo DB database')
+    .description('Mongo DB database'),
+  ADMIN_USERNAME: Joi.string().required()
+         .description('Admin username'),
+  ADMIN_PASSWORD: Joi.string().required()
+        .description('Admin Password')
 }).unknown()
   .required();
 
@@ -40,6 +44,10 @@ const config = {
     username: envVars.MONGO_USERNAME,
     password: envVars.MONGO_PASSWORD,
     database: envVars.MONGO_DATABASE,
+  },
+  admin: {
+    username: envVars.ADMIN_USERNAME,
+    password: envVars.ADMIN_PASSWORD
   }
 };
 

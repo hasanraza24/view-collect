@@ -8,4 +8,6 @@ router.post('/register', validate(userValidation.create), userCtlr.register);
 
 router.post('/login', validate(userValidation.auth), userCtlr.login);
 
+router.get('/', userCtlr.list);
+
 module.exports = router;

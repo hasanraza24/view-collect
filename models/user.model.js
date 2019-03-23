@@ -54,6 +54,14 @@ userSchema.statics = {
         }catch(e) {
             return Promise.reject(e);
         }
+    },
+    async list({ limit=10, skip=0 }) {
+        try {
+            const users = await this.find({}, 'email').limit(parseInt(limit)).skip(parseInt(skip));
+            return users;
+        }catch(e) {
+            return Promise.reject(e);
+        }
     }
 }
 

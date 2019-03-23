@@ -7,8 +7,6 @@ var expressValidation = require('express-validation');
 var UnauthorizedError = require('express-jwt').UnauthorizedError;
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var threadRouter = require('./routes/thread');
 
 var authHandler = require('./helpers/auth-handler');
 
@@ -38,11 +36,9 @@ app.options('*', (req, res, next) => {
   res.sendStatus(200);
 });
 
-app.use(authHandler);
+// app.use(authHandler);
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/threads', threadRouter);
 
 //catch errors
 // if error is not an instanceOf APIError, convert it.
